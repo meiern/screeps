@@ -6,32 +6,32 @@ let fncSpawn = {
      */
     _spawn: function(iv_spawn, iv_creepRole, il_creeps) {
         if(iv_spawn){
-            let creepCost = 0;
-            let creepName = '';
-            let creepNameCount = 0;
+            let lv_creepCost = 0;
+            let lv_creepName = '';
+            let lv_creepNameCount = 0;
 
             // Define cost for creep
-            creepCost += BODYPART_COST.carry;
-            creepCost += BODYPART_COST.work;
-            creepCost += BODYPART_COST.move;
+            lv_creepCost += BODYPART_COST.carry;
+            lv_creepCost += BODYPART_COST.work;
+            lv_creepCost += BODYPART_COST.move;
 
             // Check for sufficient energy
-            if(iv_spawn.store[RESOURCE_ENERGY] >= creepCost){
+            if(iv_spawn.store[RESOURCE_ENERGY] >= lv_creepCost){
                 // Define creep name
-                creepName = iv_creepRole + creepNameCount;
+                lv_creepName = iv_creepRole + lv_creepNameCount;
 
-                while (Game.creeps[creepName]) {
-                    creepName = iv_creepRole + creepNameCount;
-                    creepNameCount++;
+                while (Game.creeps[lv_creepName]) {
+                    lv_creepName = iv_creepRole + lv_creepNameCount;
+                    lv_creepNameCount++;
                 }
 
                 // Spawn creep
-                iv_spawn.spawnCreep([WORK, CARRY, MOVE], creepName, {
+                iv_spawn.spawnCreep([WORK, CARRY, MOVE], lv_creepName, {
                     memory: {role: iv_creepRole}
                 });
 
                 // Add creep to creep group
-                il_creeps[iv_creepRole].push(Game.creeps[creepName]);
+                il_creeps[iv_creepRole].push(Game.creeps[lv_creepName]);
             }
         }
     }

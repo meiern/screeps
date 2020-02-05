@@ -14,10 +14,10 @@ module.exports.loop = function () {
     let ll_spawns = [];
     let ll_creeps = {};
     const ll_roles = ['harvester', 'upgrader'];
-    const numOfHarvesters = 3;
-    const numOfUpgraders = 3;
-
-    ll_roles.forEach(role => ll_creeps[role] = []);
+    let ll_numOfCreepsPerRole = {
+        'harvester': 0,
+        'upgrader': 0
+    };
 
 ///////////////////////////////////// clear Memory /////////////////////////////////////
     for(let i in Memory.creeps) {
@@ -38,13 +38,12 @@ module.exports.loop = function () {
     ll_roles.forEach(role => ll_creeps[role] = _.filter(Game.creeps, {memory: { role: role }}) );
 
 /////////////////////////////////// spawning creeps ////////////////////////////////////
-    if(ll_creeps['harvester'].length < numOfHarvesters){
-        fncSpawn._spawn(ll_spawns[0], 'harvester', ll_creeps);
-    }
-
-    if(ll_creeps['upgrader'].length < numOfUpgraders){
-        fncSpawn._spawn(ll_spawns[0], 'upgrader', ll_creeps);
-    }
+    ll_roles.forEach(
+        role => {
+            if(ll_creeps[role].length < ll_numOfCreepsPerRole[role]){
+                fncSpawn._spawn(ll_spawns[0], role, ll_creeps);
+            }
+    });
 
 ///////////////////////////////// creep work progress //////////////////////////////////
     for(let name in Game.creeps) {
