@@ -10,7 +10,6 @@ let roleUpgrader = require('role.upgrader');
 let fncSpawn = require('function.spawning');
 
 module.exports.loop = function () {
-
 ////////////////////////////////////// variables ///////////////////////////////////////
     let ll_spawns = [];
     let ll_creeps = {};

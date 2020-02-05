@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54f5e949-b9a5-4b27-bf32-9a9056a2ea7c" name="Default Changelist" comment="" />
+    <list default="true" id="54f5e949-b9a5-4b27-bf32-9a9056a2ea7c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -21,6 +29,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1580891643472" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.14.2" />
@@ -40,11 +49,23 @@
       <updated>1580890538433</updated>
       <workItem from="1580893232610" duration="879000" />
       <workItem from="1580894114256" duration="14039000" />
+      <workItem from="1580916414804" duration="173000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="2255" y="297" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580905812712">
@@ -55,10 +76,18 @@
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
     <state x="2200" y="235" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580892097957" />
+    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2" timestamp="1580916526956">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916526956" />
     <state x="2021" y="149" key="SettingsEditor" timestamp="1580908663525">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
     <state x="2021" y="149" key="SettingsEditor/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580908663525" />
+    <state x="2327" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580916539659">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2327" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916539659" />
     <state x="2141" y="27" width="757" height="957" key="find.popup" timestamp="1580908069665">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
