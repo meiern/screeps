@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54f5e949-b9a5-4b27-bf32-9a9056a2ea7c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1XNggt8396zILoOoMIxUc276Ks5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1580891643472" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.14.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54f5e949-b9a5-4b27-bf32-9a9056a2ea7c" name="Default Changelist" comment="" />
+      <created>1580890538433</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580890538433</updated>
+      <workItem from="1580893232610" duration="879000" />
+      <workItem from="1580894114256" duration="14039000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2255" y="297" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580905812712">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2255" y="297" key="#com.intellij.fileTypes.FileTypeChooser/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580905812712" />
+    <state x="2200" y="235" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580892097957">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2200" y="235" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580892097957" />
+    <state x="2021" y="149" key="SettingsEditor" timestamp="1580908663525">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2021" y="149" key="SettingsEditor/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580908663525" />
+    <state x="2141" y="27" width="757" height="957" key="find.popup" timestamp="1580908069665">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2141" y="27" width="757" height="957" key="find.popup/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580908069665" />
+    <state x="2176" y="233" key="run.anything.popup" timestamp="1580915039760">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2176" y="233" key="run.anything.popup/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580915039760" />
+    <state x="2183" y="218" key="search.everywhere.popup" timestamp="1580908067356">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2183" y="218" key="search.everywhere.popup/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580908067356" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
