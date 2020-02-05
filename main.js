@@ -8,16 +8,17 @@ let roleUpgrader = require('role.upgrader');
 
 ////////////////////////////////////// functions ///////////////////////////////////////
 let fncSpawn = require('function.spawning');
+let fncCrtCreepDef = require('function.createCreepDefinition');
 
 module.exports.loop = function () {
 ////////////////////////////////////// variables ///////////////////////////////////////
     let ll_spawns = [];
     let ll_creeps = {};
+    let ll_creepDefinitions = [];
     const ll_roles = ['harvester', 'upgrader'];
-    let ll_numOfCreepsPerRole = {
-        'harvester': 0,
-        'upgrader': 0
-    };
+
+    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[0], 1, 3));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[1], 2, 3));
 
 ///////////////////////////////////// clear Memory /////////////////////////////////////
     for(let i in Memory.creeps) {
@@ -35,15 +36,24 @@ module.exports.loop = function () {
     }
 
     // List of creeps by role
-    ll_roles.forEach(role => ll_creeps[role] = _.filter(Game.creeps, {memory: { role: role }}) );
+    ll_roles.forEach(role => ll_creeps[role] = _.filter(
+        Game.creeps, {
+            memory: { role: role }
+        })
+    );
 
 /////////////////////////////////// spawning creeps ////////////////////////////////////
-    ll_roles.forEach(
-        role => {
-            if(ll_creeps[role].length < ll_numOfCreepsPerRole[role]){
-                fncSpawn._spawn(ll_spawns[0], role, ll_creeps);
+    for(let prio = 0; prio <= ll_roles.length; prio++){
+        ll_creepDefinitions.forEach(
+            creep => {
+                if(creep.prio === prio && ll_creeps[creep.role].length < ll_creepDefinitions.find(
+                    element => element.role === creep.role).amount){
+                    fncSpawn._spawn(ll_spawns[0], creep.role, ll_creeps);
+                }
             }
-    });
+        );
+    }
+
 
 ///////////////////////////////// creep work progress //////////////////////////////////
     for(let name in Game.creeps) {
