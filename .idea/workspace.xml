@@ -76,14 +76,18 @@
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
     <state x="2200" y="235" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580892097957" />
-    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2" timestamp="1580916526956">
+    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2" timestamp="1580916630318">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
-    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916526956" />
+    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916630318" />
     <state x="2021" y="149" key="SettingsEditor" timestamp="1580908663525">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
     <state x="2021" y="149" key="SettingsEditor/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580908663525" />
+    <state x="2112" y="236" key="Vcs.Push.Dialog.v2" timestamp="1580916661002">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2112" y="236" key="Vcs.Push.Dialog.v2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916661002" />
     <state x="2327" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580916539659">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
@@ -92,6 +96,10 @@
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
     <state x="2141" y="27" width="757" height="957" key="find.popup/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580908069665" />
+    <state x="2266" y="280" key="git4idea.merge.GitPullDialog" timestamp="1580916655060">
+      <screen x="1680" y="1" width="1680" height="1010" />
+    </state>
+    <state x="2266" y="280" key="git4idea.merge.GitPullDialog/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916655060" />
     <state x="2176" y="233" key="run.anything.popup" timestamp="1580915039760">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
