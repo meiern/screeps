@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54f5e949-b9a5-4b27-bf32-9a9056a2ea7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +34,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="10.14.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Ignore Files Support" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -49,6 +49,7 @@
       <workItem from="1580893232610" duration="879000" />
       <workItem from="1580894114256" duration="14039000" />
       <workItem from="1580916414804" duration="553000" />
+      <workItem from="1580916983830" duration="292000" />
     </task>
     <task id="LOCAL-00001" summary="Test commit">
       <created>1580916611000</created>
@@ -64,7 +65,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580916724063</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Test commit">
+      <created>1580917141367</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580917141367</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,7 +83,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -94,18 +104,18 @@
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
     <state x="2200" y="235" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580892097957" />
-    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2" timestamp="1580916722210">
+    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2" timestamp="1580917139406">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
-    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916722210" />
-    <state x="2021" y="149" key="SettingsEditor" timestamp="1580916968259">
+    <state x="1893" y="7" width="1234" height="982" key="CommitChangelistDialog2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580917139406" />
+    <state x="2021" y="149" key="SettingsEditor" timestamp="1580917270433">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
-    <state x="2021" y="149" key="SettingsEditor/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916968259" />
-    <state x="2112" y="236" key="Vcs.Push.Dialog.v2" timestamp="1580916726092">
+    <state x="2021" y="149" key="SettingsEditor/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580917270433" />
+    <state x="2112" y="236" key="Vcs.Push.Dialog.v2" timestamp="1580917144349">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
-    <state x="2112" y="236" key="Vcs.Push.Dialog.v2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580916726092" />
+    <state x="2112" y="236" key="Vcs.Push.Dialog.v2/3360.-28.1536.832/1680.1.1680.1010/0.0.1680.1010@1680.1.1680.1010" timestamp="1580917144349" />
     <state x="2327" y="419" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580916539659">
       <screen x="1680" y="1" width="1680" height="1010" />
     </state>
