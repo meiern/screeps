@@ -17,8 +17,8 @@ module.exports.loop = function () {
     let ll_creepDefinitions = [];
     const ll_roles = ['harvester', 'upgrader'];
 
-    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[0], 1, 3));
-    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[1], 2, 3));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[0], 0, 3));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[1], 1, 3));
 
 ///////////////////////////////////// clear Memory /////////////////////////////////////
     for(let i in Memory.creeps) {
@@ -43,17 +43,12 @@ module.exports.loop = function () {
     );
 
 /////////////////////////////////// spawning creeps ////////////////////////////////////
-    for(let prio = 0; prio <= ll_roles.length; prio++){
-        ll_creepDefinitions.forEach(
-            creep => {
-                if(creep.prio === prio && ll_creeps[creep.role].length < ll_creepDefinitions.find(
-                    element => element.role === creep.role).amount){
-                    fncSpawn._spawn(ll_spawns[0], creep.role, ll_creeps);
-                }
-            }
-        );
+    for(let prio = 0; prio < ll_roles.length; prio++){
+        let lv_creep = ll_creepDefinitions.find(element => element.prio === prio);
+        if(ll_creeps[lv_creep.role].length < lv_creep.amount){
+            fncSpawn._spawn(ll_spawns[0], lv_creep.role, ll_creeps);
+        }
     }
-
 
 ///////////////////////////////// creep work progress //////////////////////////////////
     for(let name in Game.creeps) {
