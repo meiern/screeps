@@ -15,12 +15,12 @@ module.exports.loop = function () {
     let ll_spawns = []; // List of spawns
     let ll_creeps = {}; // List of creeps per role
     let ll_creepDefinitions = []; // List of creep definitions
-    const ll_roles = ['harvester', 'upgrader']; // List of available roles
+    const ll_roles = ['harvester', 'upgrader', 'builder']; // List of available roles
 
 ///////////////////////////////////// clear Memory /////////////////////////////////////
-    for(let i in Memory.creeps) {
-        if(!Game.creeps[i]) {
-            delete Memory.creeps[i];
+    for(let lv_creepCount in Memory.creeps) {
+        if(!Game.creeps[lv_creepCount]) {
+            delete Memory.creeps[lv_creepCount];
         }
     }
 
@@ -41,18 +41,25 @@ module.exports.loop = function () {
 
 /////////////////////////////// create creep definitions ///////////////////////////////
     // Harvester
-    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[0], 0, 3));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[0], 0, 2));
     // Upgrader
-    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[1], 1, 3));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[1], 1, 4));
+    // Builder
+    ll_creepDefinitions.push(fncCrtCreepDef._create(ll_roles[2], 2, 2));
 
 /////////////////////////////////// spawning creeps ////////////////////////////////////
     // Spawn creeps by role, prio ascending
+    let lv_spawning = false;
     for(let lv_prio = 0; lv_prio < ll_roles.length; lv_prio++){
-        let lv_creep = ll_creepDefinitions.find(element => element.prio === prio);
+        let lv_creep = null;
+        lv_creep = ll_creepDefinitions.find(element => element.prio === lv_prio);
 
-        if(lv_creep){
+        if(typeof lv_creep != null){
             if(ll_creeps[lv_creep.role].length < lv_creep.amount){
-                fncSpawn._spawn(ll_spawns[0], lv_creep.role, ll_creeps);
+                if(!lv_spawning){
+                    fncSpawn._spawn(ll_spawns[0], lv_creep.role, ll_creeps);
+                    lv_spawning = true;
+                }
             }
         }
     }
