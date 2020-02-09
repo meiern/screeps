@@ -26,7 +26,7 @@ let fncSpawn = {
                 }
 
                 // Spawn creep
-                iv_spawn.spawnCreep([WORK, CARRY, MOVE], lv_creepName, {
+                iv_spawn.spawnCreep(iv_creepDefinition.body, lv_creepName, {
                     memory: {
                         role: iv_creepDefinition.role,
                         prio: iv_creepDefinition.prio,

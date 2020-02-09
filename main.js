@@ -42,11 +42,11 @@ module.exports.loop = function () {
 
 /////////////////////////////// create creep definitions ///////////////////////////////
     // Harvester
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[0], 0, 2));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[0], 0, 2, [WORK, CARRY, MOVE]));
     // Upgrader
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[1], 1, 4));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[1], 1, 4, [WORK, CARRY, MOVE]));
     // Builder
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[2], 2, 2));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[2], 2, 2, [WORK, WORK, CARRY, MOVE]));
 
 /////////////////////////////////// spawning creeps ////////////////////////////////////
     // Spawn creeps by role, prio ascending
@@ -80,7 +80,7 @@ module.exports.loop = function () {
                 }
 
                 if(lv_resourceFull){
-                    roleBuilder.run(lv_creep);
+                    roleBuilder.run(lv_creep, ll_spawns[0]);
                 }else{
                     roleHarvester.run(lv_creep);
                 }
@@ -89,7 +89,7 @@ module.exports.loop = function () {
                 roleUpgrader.run(lv_creep);
             }
             if (lv_creep.memory.role === 'builder') {
-                roleBuilder.run(lv_creep);
+                roleBuilder.run(lv_creep, ll_spawns[0]);
             }
         }
     }
