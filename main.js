@@ -21,7 +21,6 @@ module.exports.loop = function () {
     for(let lv_creepCount in Memory.creeps) {
         if(!Game.creeps[lv_creepCount]) {
             delete Memory.creeps[lv_creepCount];
-            console.log("test");
         }
     }
 
