@@ -42,16 +42,18 @@ module.exports.loop = function () {
 
 /////////////////////////////// create creep definitions ///////////////////////////////
     // Harvester
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[0], 0, 2, [WORK, CARRY, MOVE]));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[0], 0, 2, [WORK, CARRY, MOVE], 0));
+    // Harvester
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[0], 1, 2, [WORK, CARRY, MOVE], 1));
     // Upgrader
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[1], 1, 4, [WORK, CARRY, MOVE]));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[1], 2, 4, [WORK, CARRY, MOVE], 0));
     // Builder
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[2], 2, 2, [WORK, WORK, CARRY, MOVE]));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[2], 3, 3, [WORK, WORK, CARRY, MOVE], 0));
 
 /////////////////////////////////// spawning creeps ////////////////////////////////////
-    // Spawn creeps by role, prio ascending
+    // Spawn creeps by definitions, prio ascending
     let lv_spawning = false;
-    for (let lv_prio = 0; lv_prio < llc_roles.length; lv_prio++) {
+    for (let lv_prio = 0; lv_prio < ll_creepDefinitions.length; lv_prio++) {
         let lv_creep = null;
         lv_creep = ll_creepDefinitions.find(element => element.prio === lv_prio);
 
@@ -82,14 +84,17 @@ module.exports.loop = function () {
                 if(lv_resourceFull){
                     roleBuilder.run(lv_creep, ll_spawns[0]);
                 }else{
-                    roleHarvester.run(lv_creep);
+                    roleHarvester.run(lv_creep, lv_creep.resourceID);
                 }
             }
             if (lv_creep.memory.role === 'upgrader') {
                 roleUpgrader.run(lv_creep);
             }
             if (lv_creep.memory.role === 'builder') {
-                roleBuilder.run(lv_creep, ll_spawns[0]);
+                // let lv_creep = ll_creepDefinitions.find(creep => creep.role === 'builder');
+                // if (!(ll_creeps[lv_creep.role].length < lv_creep.amount)){
+                    roleBuilder.run(lv_creep, ll_spawns[0]);
+                // }
             }
         }
     }

@@ -23,7 +23,6 @@ let roleBuilder = {
         }
         else {
             let sources = io_creep.room.find(FIND_SOURCES);
-            console.log(io_creep.withdraw(io_spawn, RESOURCE_ENERGY));
             if(io_creep.withdraw(io_spawn, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
                 io_creep.moveTo(io_spawn, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
