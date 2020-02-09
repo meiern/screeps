@@ -5,6 +5,7 @@
 //////////////////////////////////////// roles /////////////////////////////////////////
 let roleHarvester = require('role.harvester');
 let roleUpgrader = require('role.upgrader');
+let roleBuilder = require('role.builder');
 
 ////////////////////////////////////// functions ///////////////////////////////////////
 let fncSpawn = require('function.spawning');
@@ -18,15 +19,15 @@ module.exports.loop = function () {
     const ll_roles = ['harvester', 'upgrader', 'builder']; // List of available roles
 
 ///////////////////////////////////// clear Memory /////////////////////////////////////
-    for(let lv_creepCount in Memory.creeps) {
-        if(!Game.creeps[lv_creepCount]) {
+    for (let lv_creepCount in Memory.creeps) {
+        if (!Game.creeps[lv_creepCount]) {
             delete Memory.creeps[lv_creepCount];
         }
     }
 
 /////////////////////////////////// list definitions ///////////////////////////////////
     // List of spawns
-    for(let lv_name in Game.spawns) {
+    for (let lv_name in Game.spawns) {
         if (Game.spawns.hasOwnProperty(lv_name)) {
             ll_spawns.push(Game.spawns[lv_name]);
         }
@@ -35,7 +36,7 @@ module.exports.loop = function () {
     // List of creeps by role
     ll_roles.forEach(role => ll_creeps[role] = _.filter(
         Game.creeps, {
-            memory: { role: role }
+            memory: {role: role}
         })
     );
 
@@ -50,13 +51,13 @@ module.exports.loop = function () {
 /////////////////////////////////// spawning creeps ////////////////////////////////////
     // Spawn creeps by role, prio ascending
     let lv_spawning = false;
-    for(let lv_prio = 0; lv_prio < ll_roles.length; lv_prio++){
+    for (let lv_prio = 0; lv_prio < ll_roles.length; lv_prio++) {
         let lv_creep = null;
         lv_creep = ll_creepDefinitions.find(element => element.prio === lv_prio);
 
-        if(typeof lv_creep != null){
-            if(ll_creeps[lv_creep.role].length < lv_creep.amount){
-                if(!lv_spawning){
+        if (typeof lv_creep != null) {
+            if (ll_creeps[lv_creep.role].length < lv_creep.amount) {
+                if (!lv_spawning) {
                     fncSpawn._spawn(ll_spawns[0], lv_creep.role, ll_creeps);
                     lv_spawning = true;
                 }
@@ -65,14 +66,34 @@ module.exports.loop = function () {
     }
 
 ///////////////////////////////// creep work progress //////////////////////////////////
-    for(let lv_name in Game.creeps) {
+    for (let lv_name in Game.creeps) {
         if (Game.creeps.hasOwnProperty(lv_name)) {
             let lv_creep = Game.creeps[lv_name];
             if (lv_creep.memory.role === 'harvester') {
-                roleHarvester.run(lv_creep);
+                // If all spawns full then build stuff
+                let lv_resourceFull = false;
+                console.log(ll_spawns.length);
+                for (let i = 0; i <= ll_spawns.length - 1; i++) {
+                    console.log(ll_spawns[i].store.getFreeCapacity());
+                    if (ll_spawns[i].store.getFreeCapacity() === 0){
+                        lv_resourceFull = true;
+                    }
+                }
+
+                console.log(lv_resourceFull);
+
+                if(lv_resourceFull){
+                    roleBuilder.run(lv_creep);
+                }else{
+                    roleHarvester.run(lv_creep);
+                }
+
             }
             if (lv_creep.memory.role === 'upgrader') {
                 roleUpgrader.run(lv_creep);
+            }
+            if (lv_creep.memory.role === 'builder') {
+                roleBuilder.run(lv_creep);
             }
         }
     }
