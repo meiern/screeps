@@ -2,6 +2,12 @@
 /////////////////////////////////// MEIERN SCREEPS /////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
+// TODO: Create classes for each entity of the project
+// TODO: resource management for creeps (Currently all creeps go for the closest resource)
+
+// INFO:    The creep definitions carry the info which resource should be targeted to prevent
+//          creeps from stacking at resource points
+
 //////////////////////////////////////// roles /////////////////////////////////////////
 let roleHarvester = require('role.harvester');
 let roleUpgrader = require('role.upgrader');
@@ -11,16 +17,25 @@ let roleBuilder = require('role.builder');
 let fncSpawn = require('function.spawning');
 let fncCrtCreepDef = require('function.createCreepDefinition');
 
+//////////////////////////////////////// core //////////////////////////////////////////
+let coreCheck = require('core.check');
+
 module.exports.loop = function () {
 ////////////////////////////////////// variables ///////////////////////////////////////
     let ll_spawns = []; // List of spawns
     let ll_creeps = {}; // List of creeps per role
     let ll_creepDefinitions = []; // List of creep definitions
-    const llc_roles = ['harvester', 'upgrader', 'builder']; // List of available roles
+    const llc_roles = {
+        HARVESTER: 'harvester',
+        UPGRADER: 'upgrader',
+        BUILDER: 'builder'}; // List of available roles
 
 ///////////////////////////////////// clear Memory /////////////////////////////////////
+    // No inspection because nonexistent elements are selected to be deleted
     for (let lv_creepCount in Memory.creeps) {
+        // noinspection JSUnfilteredForInLoop
         if (!Game.creeps[lv_creepCount]) {
+            // noinspection JSUnfilteredForInLoop
             delete Memory.creeps[lv_creepCount];
         }
     }
@@ -34,21 +49,34 @@ module.exports.loop = function () {
     }
 
     // List of creeps by role
-    llc_roles.forEach(role => ll_creeps[role] = _.filter(
-        Game.creeps, {
-            memory: {role: role}
-        })
-    );
+    for (let role in llc_roles) {
+        ll_creeps[llc_roles[role]] = _.filter(
+            Game.creeps, {
+                memory: {role: llc_roles[role]}
+            });
+    }
 
 /////////////////////////////// create creep definitions ///////////////////////////////
-    // Harvester
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[0], 0, 2, [WORK, CARRY, MOVE], 0));
-    // Harvester
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[0], 1, 2, [WORK, CARRY, MOVE], 1));
+    // TODO: Add more roles according to resource management
+    // TODO: Initialize creep definitions according to roles (Dont use same prio twice)
+    // TODO: Add secondary roles to Creep definitions
+    // TODO: Add more roles for Structures, containers, walls
+    // TODO:: Before setting the resource id we first need to check how many resources are available
+    // Harvester close
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles.HARVESTER, llc_roles.BUILDER,0, 2, [WORK, CARRY, MOVE], 0));
+    // Harvester far
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles.HARVESTER, llc_roles.BUILDER,1, 2, [WORK, CARRY, MOVE], 1));
     // Upgrader
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[1], 2, 4, [WORK, CARRY, MOVE], 0));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles.UPGRADER, llc_roles.UPGRADER,2, 4, [WORK, CARRY, MOVE], 0));
     // Builder
-    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles[2], 3, 3, [WORK, WORK, CARRY, MOVE], 0));
+    ll_creepDefinitions.push(fncCrtCreepDef._create(llc_roles.BUILDER, llc_roles.BUILDER,3, 3, [WORK, WORK, CARRY, MOVE], 0));
+
+    // TODO: Builder 2
+    // adjustment to resource management
+    // go for secondary structures
+    // TODO: UPGRADER 2
+    // adjustment to resource management
+    // go for repair jobs
 
 /////////////////////////////////// spawning creeps ////////////////////////////////////
     // Spawn creeps by definitions, prio ascending
@@ -68,18 +96,18 @@ module.exports.loop = function () {
     }
 
 ///////////////////////////////// creep work progress //////////////////////////////////
+    // TODO: Adjust Creep work triggers according to primary and secondary roles
+    // TODO: Adjust role checks so first primary then secondary roles are executed (checks should be extracted from main script)
     for (let lv_name in Game.creeps) {
         if (Game.creeps.hasOwnProperty(lv_name)) {
             let lv_creep = Game.creeps[lv_name];
             if (lv_creep.memory.role === 'harvester') {
-                // If all spawns full then build stuff
+                // TODO: Harvesters should build containers if every spawn is full
                 let lv_resourceFull = false;
 
-                for (let i = 0; i <= ll_spawns.length - 1; i++) {
-                    if (ll_spawns[i].store.getFreeCapacity(RESOURCE_ENERGY) === 0){
-                        lv_resourceFull = true;
-                    }
-                }
+                ll_spawns.forEach(
+                    spawn => lv_resourceFull = coreCheck._checkFreeCapacity(spawn, RESOURCE_ENERGY, 0)
+                );
 
                 if(lv_resourceFull){
                     roleBuilder.run(lv_creep, ll_spawns[0]);
@@ -91,10 +119,7 @@ module.exports.loop = function () {
                 roleUpgrader.run(lv_creep);
             }
             if (lv_creep.memory.role === 'builder') {
-                // let lv_creep = ll_creepDefinitions.find(creep => creep.role === 'builder');
-                // if (!(ll_creeps[lv_creep.role].length < lv_creep.amount)){
-                    roleBuilder.run(lv_creep, ll_spawns[0]);
-                // }
+                roleBuilder.run(lv_creep, ll_spawns[0]);
             }
         }
     }
